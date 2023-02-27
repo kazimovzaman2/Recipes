@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container marketing">
+    <div class="row">
+        {% for profile in profiles %}
+        <div class="col-sm-4 text-center">
+            <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{{profile.imageURL}}" alt="profile">
+            <h2 class="fw-normal">{{profile.name}}</h2>
+            <p>{{profile.short_intro}}</p>
+            <p><a class="btn btn-secondary" href="{% url 'profile' profile.id %}">View details &raquo;</a></p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}

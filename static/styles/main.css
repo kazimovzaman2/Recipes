@@ -1,0 +1,15 @@
+
+.card-img {
+    height: 240px; 
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+.ul-ingredients {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    column-gap: 30px;
+}

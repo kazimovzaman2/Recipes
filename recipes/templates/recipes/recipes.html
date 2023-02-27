@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    {% if request.user.is_authenticated %}
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'create-recipe' %}" class="btn btn-primary mb-4 me-4">Create Recipe</a>
+        </div>
+        {% endif %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+        {% for recipe in recipes %}
+        <div class="col">
+            <div class="card shadow-sm">
+                {% if recipe.image %}
+                <img class="card-img" src="{{recipe.imageURL}}" alt="recipe">
+                {% else %}
+                <img class="card-img" src="{% static 'images/default.jpg' %}" alt="recipe">
+                {% endif %}
+                <div class="card-body">
+                    <h4>{{recipe.title}}</h4>
+                    <a href="{% url 'profile' recipe.owner.id %}">{{recipe.owner.name}}</a>
+                    <p class="card-text">{{recipe.description|slice:"100"}}...</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="{% url 'recipe' recipe.id %}" class="btn btn-primary">View</a>
+                        </div>
+                        <small class="text-muted">Created {{ recipe.time_cal }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}

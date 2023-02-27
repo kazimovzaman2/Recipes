@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{{recipe.imageURL}}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">{{recipe.title}}</h1>
+        <p class="lead">{{recipe.description}}</p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button id="ingredientsBtn" type="button" class="btn btn-primary btn-lg px-4 me-md-2">Ingredients</button>
+          <button id="instructionsBtn" type="button" class="btn btn-outline-secondary btn-lg px-4">Instructions</button>
+        </div>
+
+        <br>
+
+        <!-- <div id="myDiv" class="">{{recipe.ingredients|linebreaks}}</div> -->
+         <div id="ingredients" class="d-none">
+            <ul class="ul-ingredients">
+              {% for ingredient in recipe.ingredients.splitlines %}
+                {% if ingredient.strip %}
+                    <li>{{ ingredient }}</li>
+                    <br>
+                {% endif %}
+              {% endfor %}
+            </ul>
+        </div>
+          
+
+        <div id="instructions" class="d-none">{{recipe.instructions|linebreaks}}</div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="{% url 'update-recipe' recipe.id %}" class="btn btn-primary btn-sm px-4 me-sm-2">Update</a>
+          <a href="{% url 'delete-recipe' recipe.id %}" class="btn btn-danger btn-sm px-4">Delete</a>
+      </div>
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

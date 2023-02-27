@@ -1,0 +1,25 @@
+{% load static %}
+
+
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="{% url 'recipes' %}" class="d-flex align-items-center col-sm-3 mb-2 mb-sm-0 text-dark text-decoration-none">Recipes</a>
+
+      <ul class="nav col-12 col-sm-auto mb-2 justify-content-center mb-sm-0">
+        <li><a href="{% url 'profiles' %}" class="nav-link px-2 link-dark">Chefs</a></li>
+        <li><a href="{% url 'recipes' %}" class="nav-link px-2 link-dark">Recipes</a></li>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'account' %}" class="nav-link px-2 link-dark">Account</a>
+        {% endif %}
+      </ul>
+
+      <div class="col-sm-3 text-end">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="btn btn-outline-primary me-2">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}" class="btn btn-outline-primary me-2">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-primary">Sign-up</a>
+        {% endif %}
+      </div>
+    </header>
+</div>

@@ -1,0 +1,15 @@
+asgiref==3.6.0
+Django==3.2
+django-cors-headers==3.13.0
+django-storages==1.13.2
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
+Pillow==9.4.0
+psycopg2==2.9.5
+PyJWT==2.6.0
+python-decouple==3.7
+pytz==2022.7.1
+sqlparse==0.4.3
+tzdata==2022.7
+whitenoise==6.3.0
+wincertstore==0.2

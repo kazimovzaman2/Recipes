@@ -14,7 +14,7 @@ class Recipe(models.Model):
     description = models.TextField()
     ingredients = models.TextField()
     instructions = models.TextField()
-    image = models.ImageField(null=True, blank=True, default='default.jpg')
+    image = models.ImageField(null=True, blank=True, upload_to='recipe', default='default.jpg')
     meal_type = models.ForeignKey('Meal_Type', blank=True, null=True, on_delete=models.SET_NULL)
 
     created_at = models.DateTimeField(auto_now_add=True)

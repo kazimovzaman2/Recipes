@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/4024177c-c730-46e5-9a3c-bc15db51ba11/resourceGroups/zaman/providers/Microsoft.Web/sites/kazimovzaman2",
-    "appService.deploySubpath": "."
-}

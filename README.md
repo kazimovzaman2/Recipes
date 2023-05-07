@@ -7,6 +7,9 @@ Welcome to the Recipe Django App! This application allows users to browse throug
 - Create new recipes
 - Edit and delete existing recipes
 
+## Live Demo Website
+https://recipe-zaman.azurewebsites.net/
+
 ## Installation
 
 1. Clone the repository to your local machine using the following command:
